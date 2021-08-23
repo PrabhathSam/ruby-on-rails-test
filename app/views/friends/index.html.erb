@@ -1,0 +1,30 @@
+<div class="m-5">
+  <h1>Friends</h1>
+</div>
+<div class="border m-5">
+  <p id="notice"><%= notice %></p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @friends.each do |friend| %>
+          <tr>
+            <td><%= friend.firstName %></td>
+            <td><%= friend.lastName %></td>
+            <td><%= link_to 'Show', friend %>
+              <%= link_to 'Edit', edit_friend_path(friend) %>
+              <%= link_to 'Destroy', friend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <%= link_to 'New Friend', new_friend_path, class:"btn btn-success m-1"%>
+</div>
